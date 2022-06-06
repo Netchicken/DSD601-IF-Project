@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
-using System.ComponentModel.DataAnnotations;
+﻿using dsd01IFproject.Operations;
 
 namespace dsd01IFproject.Pages
 {
@@ -11,7 +8,6 @@ namespace dsd01IFproject.Pages
 
         [Display(Name = "Marks 1")]
         public float Marks1 { get; set; } = 54;
-
 
         [Display(Name = "Marks 2")]
         public float Marks2 { get; set; } = 45;
@@ -41,7 +37,6 @@ namespace dsd01IFproject.Pages
         [Display(Name = "Student Results")]
         public List<string>? StudentResults { get; set; } = new List<string>();
 
-        public string[] studentResult { get; set; } = Array.Empty<string>(); //https://www.learnrazorpages.com/razor-pages/model-binding
 
 
 
@@ -49,7 +44,7 @@ namespace dsd01IFproject.Pages
         public void OnPost()
         {
 
-            StudentResults.AddRange(studentResult);
+
             //this exerccise can be the first to show methods.
 
             if (ModelState.IsValid)
@@ -72,10 +67,14 @@ namespace dsd01IFproject.Pages
                     Pass3 = true;
                 }
 
-                StudentResults.Add(Name + " Pass 1 = " + Pass1 + ". Pass All = " + PassAll + ". Pass 3 = " + Pass3 + ".  Student Average = " + StudentAverage);
+
+
+                StaticList.StaticStudentResults.Add(Name + " Pass 1 = " + Pass1 + ". Pass All = " + PassAll + ". Pass 3 = " + Pass3 + ".  Student Average = " + StudentAverage);
+
+                StudentResults.AddRange(StaticList.StaticStudentResults);
             }
 
-            //   return Page();
+
         }
 
 
