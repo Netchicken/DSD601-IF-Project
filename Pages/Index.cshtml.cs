@@ -1,5 +1,10 @@
 ﻿using dsd01IFproject.Operations;
 
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+using System.ComponentModel.DataAnnotations;
+
 namespace dsd01IFproject.Pages
 {
     [BindProperties]
